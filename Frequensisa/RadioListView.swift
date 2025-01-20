@@ -17,6 +17,8 @@ struct RadioListView: View {
         Radio(name: "RTL2", category: "Musique", url: "http://streaming.radio.rtl2.fr/rtl2-1-44-128?listen=webCwsBCggNCQgLDQUGBAcGBg")
     ]
     
+    @State private var visibleItems: Set<UUID> = []
+    
     var body: some View {
         NavigationView {
             List {
@@ -29,11 +31,23 @@ struct RadioListView: View {
                                 Image(systemName: "chevron.right")
                                     .foregroundColor(.gray)
                             }
+                            .opacity(visibleItems.contains(radio.id) ? 1 : 0)
+                            .animation(.easeInOut(duration: 1.5), value: visibleItems)
+                            .onAppear {
+                                showItemWithDelay(radio.id)
+                            }
                         }
                     }
                 }
             }
             .navigationTitle("Radios")
+        }
+    }
+    
+    private func showItemWithDelay(_ id: UUID) {
+        let index = radios.firstIndex(where: { $0.id == id }) ?? 0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 + Double(index) * 0.2) {
+            visibleItems.insert(id)
         }
     }
     

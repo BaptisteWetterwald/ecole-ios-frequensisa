@@ -12,9 +12,9 @@ struct ContentView: View {
 
     var body: some View {
         if showList {
-            RadioListView() // Affiche la liste des radios
+            RadioListView()
         } else {
-            WelcomeAnimationView(showList: $showList) // Affiche l'écran d'animation
+            WelcomeAnimationView(showList: $showList)
         }
     }
 }
