@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "baptoussste_a_logo_for_an_iOS_WebRadio_listener_app_on_a_Black__11927507-737e-43f2-8e72-3d0e1ea35252.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
