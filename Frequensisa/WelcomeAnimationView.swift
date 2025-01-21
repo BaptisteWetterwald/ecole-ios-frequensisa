@@ -2,7 +2,7 @@
 //  WelcomeAnimationView.swift
 //  Frequensisa
 //
-//  Created by ENSISA on 20/01/2025.
+//  Created by Baptiste Wetterwald and Marc Proux on 20/01/2025.
 //
 
 import SwiftUI

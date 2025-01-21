@@ -2,7 +2,7 @@
 //  FrequensisaApp.swift
 //  Frequensisa
 //
-//  Created by Baptiste Wetterwald on 09/01/2025.
+//  Created by Baptiste Wetterwald and Marc Proux on 09/01/2025.
 //
 
 import SwiftUI
@@ -11,8 +11,6 @@ import SwiftUI
 struct FrequensisaApp: App {
     var body: some Scene {
         WindowGroup {
-            
-            
             ContentView()
         }
     }

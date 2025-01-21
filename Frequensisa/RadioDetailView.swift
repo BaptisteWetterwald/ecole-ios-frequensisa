@@ -2,7 +2,7 @@
 //  RadioDetailView.swift
 //  Frequensisa
 //
-//  Created by Baptiste Wetterwald on 21/01/2025.
+//  Created by Baptiste Wetterwald and Marc Proux on 21/01/2025.
 //
 
 import SwiftUI
@@ -15,6 +15,7 @@ struct RadioDetailView: View {
 
     var body: some View {
         VStack {
+            Spacer()
             // Nom et catégorie de la radio
             VStack(spacing: 10) {
                 Text(radio.name)
@@ -64,7 +65,7 @@ struct RadioDetailView: View {
         .onAppear {
             setupPlayer()
         }
-        .navigationTitle("Détails de la Radio")
+        .navigationTitle("Super choix !")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: AddRadioView(radio: radio) { updatedRadio in

@@ -2,7 +2,7 @@
 //  RadioListView.swift
 //  Frequensisa
 //
-//  Created by Baptiste Wetterwald on 20/01/2025.
+//  Created by Baptiste Wetterwald and Marc Proux on 20/01/2025.
 //
 
 import SwiftUI

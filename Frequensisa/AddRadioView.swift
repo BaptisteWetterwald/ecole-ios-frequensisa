@@ -1,3 +1,10 @@
+//
+//  Radio.swift
+//  Frequensisa
+//
+//  Created by Baptiste Wetterwald and Marc Proux on 21/01/2025.
+//
+
 import SwiftUI
 
 struct AddRadioView: View {
@@ -16,7 +23,7 @@ struct AddRadioView: View {
 
     var body: some View {
         Form {
-            Section(header: Text("Informations de la Radio")) {
+            Section(header: Text("Informations de la radio")) {
                 TextField("Nom", text: $name)
                     .textInputAutocapitalization(.words)
 
@@ -27,7 +34,7 @@ struct AddRadioView: View {
                     .keyboardType(.URL)
             }
         }
-        .navigationTitle(name.isEmpty ? "Ajouter une Radio" : "Modifier la Radio")
+        .navigationTitle(name.isEmpty ? "Ajouter une radio" : "Modifier la radio")
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button("Annuler") {
