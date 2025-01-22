@@ -22,9 +22,12 @@ struct RadioListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(groupedRadios.keys.sorted(), id: \ .self) { category in
-                    Section(header: Text(category).font(.headline)) {
-                        ForEach(groupedRadios[category]!.indices, id: \ .self) { index in
+                ForEach(groupedRadios.keys.sorted(), id: \.self) { category in
+                    Section(header: Text(category)
+                        .font(.headline)
+                        .foregroundStyle(.white) // Enlever si on garde pas le background
+                    ) {
+                        ForEach(groupedRadios[category]!.indices, id: \.self) { index in
                             NavigationLink(destination: RadioDetailView(radio: $radios[groupedRadios[category]![index]])) {
                                 Text(radios[groupedRadios[category]![index]].name)
                                     .opacity(visibleItems.contains(radios[groupedRadios[category]![index]].id) ? 1 : 0)
@@ -47,6 +50,15 @@ struct RadioListView: View {
                     }
                 }
             }
+            // Commenter ici si on veut l'enlever
+            .background(
+                Image("rectangle")
+                    .resizable()
+                    .scaleEffect(x: 1.3, y: 1.5)
+                    .offset(y: -20)
+            )
+            .scrollContentBackground(.hidden)
+            // Jusque là
         }
     }
     

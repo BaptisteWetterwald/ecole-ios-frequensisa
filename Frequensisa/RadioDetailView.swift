@@ -22,6 +22,7 @@ struct RadioDetailView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
+                    .foregroundStyle(.white)
 
                 Text(radio.category)
                     .font(.title2)
@@ -65,7 +66,7 @@ struct RadioDetailView: View {
         .onAppear {
             setupPlayer()
         }
-        .navigationTitle("Super choix !")
+        //.navigationTitle("Super choix !") // En commentaire pcqu'on ne peut pas le mettre en white
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: AddRadioView(radio: radio) { updatedRadio in
@@ -75,6 +76,7 @@ struct RadioDetailView: View {
                 }
             }
         }
+        .background(Image("round").resizable().scaledToFill().ignoresSafeArea())
     }
 
     private func setupPlayer() {
