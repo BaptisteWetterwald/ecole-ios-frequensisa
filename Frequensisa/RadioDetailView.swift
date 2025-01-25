@@ -9,28 +9,25 @@ import SwiftUI
 import AVKit
 
 struct RadioDetailView: View {
-    @ObservedObject var playerManager = RadioPlayerManager.shared // Utilisation du gestionnaire global
+    @Environment(\.dismiss) var dismissDetail // Pour fermer la vue détail
+    @ObservedObject var playerManager = RadioPlayerManager.shared
     @Binding var radio: Radio
 
     var body: some View {
         VStack {
             Spacer()
-            
-            // Nom et catégorie de la radio
             VStack(spacing: 10) {
                 Text(radio.name)
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
                 Text(radio.category)
                     .font(.title2)
                     .foregroundColor(.gray)
             }
             .padding()
-
             Spacer()
 
-            // Boutons Play et Pause
+            // Boutons Play / Pause
             HStack {
                 Spacer()
                 Button(action: {
@@ -56,16 +53,26 @@ struct RadioDetailView: View {
                         .opacity(playerManager.isPlaying ? 1 : 0.5)
                 }
                 .disabled(!playerManager.isPlaying)
-
                 Spacer()
             }
             .padding()
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: AddRadioView(radio: radio) { updatedRadio in
-                    self.radio = updatedRadio
-                }) {
+                NavigationLink(
+                    destination: AddRadioView(
+                        radio: radio,
+                        onSave: { updatedRadio in
+                            // Mise à jour de la radio dans cette vue
+                            self.radio = updatedRadio
+                        },
+                        onDelete: {
+                            // On se ferme nous-même
+                            print("closing the detail view")
+                            dismissDetail()
+                        }
+                    )
+                ) {
                     Text("Modifier")
                 }
             }
